@@ -25,6 +25,12 @@ public class HomeFragment extends Fragment {
         View root = binding.getRoot();
 
         final TextView textView = binding.textHome;
+        binding.textHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
