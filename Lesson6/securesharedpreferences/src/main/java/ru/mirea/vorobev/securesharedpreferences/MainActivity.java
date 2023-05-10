@@ -4,14 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.security.crypto.EncryptedSharedPreferences;
 import androidx.security.crypto.MasterKeys;
 
+
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.security.keystore.KeyGenParameterSpec;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -19,8 +18,9 @@ import java.security.GeneralSecurityException;
 public class MainActivity extends AppCompatActivity {
     private ImageView poetImage;
     private TextView poetName;
+    private SharedPreferences secureSharedPreferences;
 
-    private Button saveButton;
+    private String hide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
 
         poetImage = findViewById(R.id.poetImage);
         poetName = findViewById(R.id.poet_name);
-        saveButton = findViewById(R.id.button);
-
-        // Получаем имя любимого поэта из SharedPreferences
-        SharedPreferences preferences = getSharedPreferences("MyPreferences", MODE_PRIVATE);
-        String favoritePoetName = preferences.getString("favorite_poet_name", "");
-
-        // Отображаем имя поэта на экране
-        poetName.setText(favoritePoetName);
-        saveButton.setOnClickListener(new View.OnClickListener(){
-        @Override
-        public void onClick (View v){
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putString("secure", "Том Круз");
-            editor.apply();
-            Toast.makeText(MainActivity.this, "Данные сохранены", Toast.LENGTH_SHORT).show();
+        try{
+            KeyGenParameterSpec keyGenParameterSpec = MasterKeys.AES256_GCM_SPEC;
+            String mainKeyAlias = MasterKeys.getOrCreate(keyGenParameterSpec);
+            secureSharedPreferences = EncryptedSharedPreferences.create(
+                    "MyPreferences",
+                    mainKeyAlias,
+                    getBaseContext(),
+                    EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                    EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM);
+        secureSharedPreferences.edit().putString("secure", "Том Круз").apply();
         }
-        });
+         catch (GeneralSecurityException | IOException e) {
+             throw new RuntimeException(e);
+         }
+        hide = secureSharedPreferences.getString("secure", "Том Круз");
+        poetName.setText(hide);
+
     }
 
 }

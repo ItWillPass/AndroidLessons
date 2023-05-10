@@ -26,14 +26,4 @@
         app:layout_constraintStart_toStartOf="@+id/poetImage"
         app:layout_constraintTop_toTopOf="@+id/poetImage" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="saveFavoritePoetName"
-        android:text="Сохранить"
-        app:layout_constraintBottom_toBottomOf="@+id/poetImage"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
