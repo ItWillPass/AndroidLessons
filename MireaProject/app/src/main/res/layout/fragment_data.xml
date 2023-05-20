@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:layout_editor_absoluteX="-53dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/doodlejump" />
+
+        <TextView
+            android:id="@+id/textViewAboutJump"
+            android:layout_width="401dp"
+            android:layout_height="341dp"
+            android:background="#FF9800"
+            android:backgroundTint="#FFEB3B"
+            android:text="Doodle Jump is an adventure in which you jump from one platform to the next. Avoid obstacles by shooting or dodging them, and pick up many awesome power-up items. Doodle Jump's objective is to control and guide a four-legged creature that looks like a doodle, whose name is Doodler. You will guide Doodler to move up in a jumping motion to a never-ending series of platforms without falling down. It would be boring if that was all there was to the game, so players have to avoid obstacles like monsters and UFOs. There are numerous ways to avoid these obstacles, such as by shooting them or jumping in a different direction. Keep in mind that there is no definitive end to the game. You'll notice the end of each gameplay session when the Doodler falls to the bottom of the screen and then jumps into a random monster that appears at that time. Other ways include being sucked into a black hole or being abducted by a UFO. How exciting is that, right?  Doodle Jump is a well-liked and highly rated game. This game has received many positive reviews from critics. TouchGen has said that Doodle Jump is &quot;fun as heck&quot; and that the cartoon graphics and sound effects are great. "
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/start_button"
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:text="Button" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

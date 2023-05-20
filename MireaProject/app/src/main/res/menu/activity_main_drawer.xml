@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
@@ -20,5 +21,18 @@
             android:id="@+id/nav_brouser"
             android:icon="@android:drawable/ic_menu_share"
             android:title="@string/brouser" />
+        <item
+            android:id="@+id/doodle"
+            android:icon="@color/purple_200"
+            android:title="Interes" />
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/nav_film"
+            android:icon="@drawable/film"
+            android:title="@string/film" />
+
     </group>
 </menu>

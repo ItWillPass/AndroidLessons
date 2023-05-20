@@ -27,4 +27,19 @@
         android:name="ru.mirea.vorobev.mireaproject.BrouserFragment"
         android:label="fragment_brouser"
         tools:layout="@layout/fragment_brouser" />
+    <fragment
+        android:id="@+id/doodle"
+        android:name="ru.mirea.vorobev.mireaproject.DataFragment"
+        android:label="data_fragment"
+        tools:layout="@layout/fragment_data" />
+    <fragment
+        android:id="@+id/nav_camera"
+        android:name="ru.mirea.vorobev.mireaproject.CameraAndRecorderFragment"
+        android:label="menu_profile"
+        tools:layout="@layout/fragment_camera" />
+    <fragment
+        android:id="@+id/nav_film"
+        android:name="ru.mirea.vorobev.mireaproject.FilmFragment"
+        android:label="film_fragment"
+        tools:layout="@layout/fragment_films" />
 </navigation>

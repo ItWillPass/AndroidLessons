@@ -8,6 +8,8 @@ public class GalleryViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
+
+
     public GalleryViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is gallery fragment");
