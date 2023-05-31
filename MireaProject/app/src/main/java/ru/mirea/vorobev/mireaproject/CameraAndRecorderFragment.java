@@ -57,7 +57,7 @@ public class CameraAndRecorderFragment extends Fragment implements SensorEventLi
     private MediaRecorder mediaRecorder;
     private MediaPlayer mediaPlayer;
 
-    private String outputFile;
+    private File audioFile;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -137,14 +137,16 @@ public class CameraAndRecorderFragment extends Fragment implements SensorEventLi
     }
 
     private void startRecording() {
-        outputFile = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MUSIC)
-                .getAbsolutePath() + "/recording.3gp";
+        if (audioFile == null) {
+            audioFile = new File(getActivity().getExternalFilesDir(Environment.DIRECTORY_MUSIC), "recording.3gp");
+        }
 
-        mediaRecorder = new MediaRecorder();
+        mediaRecorder = new MediaRecorder(); // Инициализация объекта mediaRecorder
+
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        mediaRecorder.setOutputFile(outputFile);
+        mediaRecorder.setOutputFile(audioFile.getAbsolutePath());
 
         try {
             mediaRecorder.prepare();
@@ -154,24 +156,31 @@ public class CameraAndRecorderFragment extends Fragment implements SensorEventLi
         }
     }
 
+
     private void stopRecording() {
         if (mediaRecorder != null) {
-            mediaRecorder.stop();
+            try {
+                mediaRecorder.stop();
+            } catch (RuntimeException e) {
+                e.printStackTrace();
+            }
             mediaRecorder.release();
             mediaRecorder = null;
         }
     }
 
+
     private void playRecording() {
         mediaPlayer = new MediaPlayer();
         try {
-            mediaPlayer.setDataSource(outputFile);
+            mediaPlayer.setDataSource(audioFile.getAbsolutePath());
             mediaPlayer.prepare();
             mediaPlayer.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 
 
 

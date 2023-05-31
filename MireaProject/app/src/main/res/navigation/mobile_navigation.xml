@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="ru.mirea.vorobev.mireaproject.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
         android:id="@+id/nav_slideshow"
         android:name="ru.mirea.vorobev.mireaproject.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
@@ -42,4 +36,9 @@
         android:name="ru.mirea.vorobev.mireaproject.FilmFragment"
         android:label="film_fragment"
         tools:layout="@layout/fragment_films" />
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="ru.mirea.vorobev.mireaproject.EstablishmentsFragment"
+        android:label="map_fragment"
+        tools:layout="@layout/fragment_establishments" />
 </navigation>
