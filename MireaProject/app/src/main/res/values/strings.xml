@@ -24,4 +24,5 @@
     <string name="signed_out">Signed_out</string>
     <string name="title_activity_authentication">Authentication</string>
     <string name="map">Map</string>
+    <string name="title_activity_open_map">Open map</string>
 </resources>

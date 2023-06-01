@@ -41,4 +41,9 @@
         android:name="ru.mirea.vorobev.mireaproject.EstablishmentsFragment"
         android:label="map_fragment"
         tools:layout="@layout/fragment_establishments" />
+    <fragment
+        android:name="ru.mirea.vorobev.mireaproject.MapFragment"
+        android:id="@+id/mapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </navigation>
