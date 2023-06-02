@@ -5,14 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="411dp"
+        android:layout_height="800dp"
+        android:background="#EFCE7A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:orientation="vertical"
         android:padding="16dp"
-        tools:layout_editor_absoluteX="-53dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/title"
@@ -28,28 +40,59 @@
             android:textColor="?attr/colorOnBackground"
             android:textSize="16sp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/doodlejump" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/textViewAboutJump"
-            android:layout_width="401dp"
-            android:layout_height="341dp"
-            android:background="#FF9800"
-            android:backgroundTint="#FFEB3B"
-            android:text="Doodle Jump is an adventure in which you jump from one platform to the next. Avoid obstacles by shooting or dodging them, and pick up many awesome power-up items. Doodle Jump's objective is to control and guide a four-legged creature that looks like a doodle, whose name is Doodler. You will guide Doodler to move up in a jumping motion to a never-ending series of platforms without falling down. It would be boring if that was all there was to the game, so players have to avoid obstacles like monsters and UFOs. There are numerous ways to avoid these obstacles, such as by shooting them or jumping in a different direction. Keep in mind that there is no definitive end to the game. You'll notice the end of each gameplay session when the Doodler falls to the bottom of the screen and then jumps into a random monster that appears at that time. Other ways include being sucked into a black hole or being abducted by a UFO. How exciting is that, right?  Doodle Jump is a well-liked and highly rated game. This game has received many positive reviews from critics. TouchGen has said that Doodle Jump is &quot;fun as heck&quot; and that the cartoon graphics and sound effects are great. "
-            android:textAlignment="center"
-            android:textAllCaps="false"
-            android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="181dp"
+                android:layout_height="134dp"
+                app:srcCompat="@drawable/doodlejump" />
 
-        <Button
-            android:id="@+id/start_button"
+            <Button
+                android:id="@+id/start_button"
+                android:layout_width="match_parent"
+                android:layout_height="76dp"
+                android:text="Поток" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="76dp"
-            android:text="Button" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textViewAboutJump"
+                android:layout_width="401dp"
+                android:layout_height="wrap_content"
+                android:background="#FF9800"
+                android:backgroundTint="#ABC384"
+                android:text="Doodle Jump is an adventure in which you jump from one platform to the next. Avoid obstacles by shooting or dodging them, and pick up many awesome power-up items. Doodle Jump's objective is to control and guide a four-legged creature that looks like a doodle, whose name is Doodler. You will guide Doodler to move up in a jumping motion to a never-ending series of platforms without falling down. It would be boring if that was all there was to the game, so players have to avoid obstacles like monsters and UFOs. There are numerous ways to avoid these obstacles, such as by shooting them or jumping in a different direction."
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                app:srcCompat="@drawable/dod" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="401dp"
+                android:layout_height="wrap_content"
+                android:background="#FF9800"
+                android:backgroundTint="#ABC384"
+                android:text="Keep in mind that there is no definitive end to the game. You'll notice the end of each gameplay session when the Doodler falls to the bottom of the screen and then jumps into a random monster that appears at that time. Other ways include being sucked into a black hole or being abducted by a UFO. How exciting is that, right?  Doodle Jump is a well-liked and highly rated game. This game has received many positive reviews from critics. TouchGen has said that Doodle Jump is &quot;fun as heck&quot; and that the cartoon graphics and sound effects are great. "
+                android:textAlignment="textStart"
+                android:textAllCaps="false"
+                android:textColor="@color/cardview_dark_background"
+                android:textStyle="bold" />
+        </LinearLayout>
 
     </LinearLayout>
 

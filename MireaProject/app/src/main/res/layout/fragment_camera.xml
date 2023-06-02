@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".CameraAndRecorderFragment">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="411dp"
+        android:layout_height="800dp"
+        android:background="#EFCE7A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
