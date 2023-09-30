@@ -2,6 +2,7 @@ package ru.mirea.vorobev.accelerometer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -16,10 +17,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     private TextView rollTextView;
     private SensorManager sensorManager;
     private Sensor accelerometerSensor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         SensorManager sensorManager =
                 (SensorManager)getSystemService(Context.SENSOR_SERVICE);
         accelerometerSensor = sensorManager
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sensorManager.registerListener(this, accelerometerSensor,
                 SensorManager.SENSOR_DELAY_NORMAL);
     }
+    @SuppressLint("SetTextI18n")
     @Override
     public void onSensorChanged(SensorEvent event) {
         if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {

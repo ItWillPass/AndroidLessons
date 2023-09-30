@@ -131,5 +131,28 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             tools:layout_editor_absoluteY="16dp" />
+
+        <Button
+            android:id="@+id/androidIdSignInButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SignInAndroidID"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/fieldEmail"
+            app:layout_constraintVertical_bias="0.935" />
+
+        <Button
+            android:id="@+id/createAccountInID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CreateINAndoidID"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.925"
+            app:layout_constraintStart_toStartOf="@+id/emailSignInButton"
+            app:layout_constraintTop_toTopOf="@+id/fieldPassword"
+            app:layout_constraintVertical_bias="0.944" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

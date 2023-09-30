@@ -2,6 +2,7 @@ package ru.mirea.vorobev.mireaproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,7 @@ public class FirebaseAuthentication extends AppCompatActivity {
                 String email = binding.fieldEmail.getText().toString();
                 String password = binding.fieldPassword.getText().toString();
                 signIn(email, password);
+
             }
         });
         binding.emailCreateAccountButton.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,19 @@ public class FirebaseAuthentication extends AppCompatActivity {
                 String email = binding.fieldEmail.getText().toString();
                 String password = binding.fieldPassword.getText().toString();
                 createAccount(email, password);
+            }
+        });
+
+        binding.androidIdSignInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signInWithAndroidId();
+            }
+        });
+        binding.createAccountInID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createAccountInID();
             }
         });
 
@@ -83,6 +98,54 @@ public class FirebaseAuthentication extends AppCompatActivity {
                     }
                 });
     }
+    private void createAccountInID() {
+        String androidId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        String email = androidId + "@mail.ru";
+        String password = androidId;
+
+        Log.d(TAG, "createAccount:" + email);
+
+        LogIn.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "createUserWithEmail:success");
+                            FirebaseUser user = LogIn.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+    private void signInWithAndroidId() {
+        String androidId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
+        String email = androidId + "@mail.ru"; // Создаем адрес электронной почты на основе ANDROID_ID
+        String password = androidId; // Используем ANDROID_ID как пароль
+
+        Log.d(TAG, "signInWithAndroidId:" + email);
+        LogIn.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, "signInWithAndroidId:success");
+                            FirebaseUser user = LogIn.getCurrentUser();
+                            updateUI(user);
+                        } else {
+                            Log.w(TAG, "signInWithAndroidId:failure", task.getException());
+                            Toast.makeText(FirebaseAuthentication.this, "Authentication failed.",
+                                    Toast.LENGTH_SHORT).show();
+                            updateUI(null);
+                        }
+                    }
+                });
+    }
+
 
     private void signIn(String email, String password) {
         Log.d(TAG, "signIn:" + email);
